@@ -31,13 +31,13 @@ void main(){
     } while(opt!=4);
 }
 void enqueue(){
-    if(front=(rear+1)%n){
+    if(front==(rear+1)%n){
         printf("queue overflow");
     }else{
-        printf("enter the element to be added");
+        printf("enter the element to be added\n ");
         scanf("%d",&item);
         rear=(rear+1)%n;
-        a[i]=item;
+        a[rear]=item;
         if(front==-1){
             front=0;
         }
