@@ -18,39 +18,40 @@ void display();
         printf("\nChoice: ");
         scanf("%d", &opt);
 
-        switch (opt) {
-            case 1:
+               switch (opt) {
+                case 1:
                 enqueue();
                 break;
-            case 2:
+                case 2:
                 dequeue();
                 break;
-            case 3:
+                case 3:
                 display();
                 break;
-            case 4:
-                printf("Exiting...");
+                case 4:
+                printf("Exiting byeeeee\n");
+                printf("''''THANK YOU'''''");
                 break;
-            default:
-                printf("Enter a valid option.");
-        }
-    } while (opt != 4);
-}
+                default:
+                printf("Enter a valid option maaaan");
+    }
+    }          while (opt != 4);
+    }
 
 void enqueue() {
     int item;
-    if (rear == n - 1) {
+        if (rear == n - 1) {
         printf("Queue overflow.");
-    } else {
+    }   else {
         printf("Enter the element to be added: ");
         scanf("%d", &item);
         if (front == -1) {
             front = 0; 
-        }
+    }
         rear++;
         a[rear] = item;
     }
-}
+    }
 
 void dequeue() {
     if (front == -1 || front > rear) {
@@ -60,9 +61,9 @@ void dequeue() {
         front++;
         if (front > rear) {
             front = rear = -1; 
-        }
     }
-}
+    }
+    }
 
 void display() {
     if (front == -1) {
@@ -71,7 +72,7 @@ void display() {
         printf("The queue is: ");
         for (int i = front; i <= rear; i++) {
             printf("%d ", a[i]);
-        }
+    }
         printf("\n");
     }
-}
+    }
