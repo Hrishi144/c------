@@ -33,7 +33,7 @@ void display();
                 printf("''''THANK YOU'''''");
                 break;
                 default:
-                printf("Enter a valid option maaaan");
+                printf("Enter a valid option");
     }
     }          while (opt != 4);
     }
