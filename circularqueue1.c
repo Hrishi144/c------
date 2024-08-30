@@ -47,7 +47,7 @@ void enqueue(){
 void dequeue(){
     if(rear==-1||front==-1){
         printf("queue underflow");
-    }else if(front=rear){
+    }else if(front==rear){
         item=a[front];
         front=-1;
         rear=-1;
