@@ -45,7 +45,7 @@ void enqueue(){
     }
  }
 void dequeue(){
-    if(rear==-1||front==-1){
+    if(front==-1){
         printf("queue underflow");
     }else if(front==rear){
         item=a[front];
@@ -59,7 +59,7 @@ void dequeue(){
             printf("the deleted element is%d\n ",item);
         }}
         void display(){
-            if(rear==-1||front==-1){
+            if(front==-1){
                 printf("the queue is empty");
             } else{
                    printf("the queue is\n...");
