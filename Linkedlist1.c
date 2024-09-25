@@ -3,11 +3,12 @@
 struct node{
     int data;
     struct node*link;
-}*temp,*head=NULL,*ptr;
+}*temp,*head=NULL,*ptr,*poin;
 int item;
 void insertion_at_begining();
 void insertion_at_end();
 void insertion_at_anypoint();
+void print();
 void insertion_at_begining(){
     temp=(struct node*)malloc(sizeof(struct node));
     if(temp==NULL){
@@ -57,6 +58,7 @@ void insertion_at_begining(){
         printf("overflow");
     }printf("enter the data to be inserted:");
     scanf("%d",&item);
+    temp->data=item;
      if(head==NULL){
          temp->link=NULL;
         temp->data=item;
@@ -71,16 +73,22 @@ void insertion_at_begining(){
         ptr=ptr->link;
     } if(ptr==NULL){
         printf("the node with data value %d not found",posi);
+        free(temp);
         return;
     } 
      p=ptr->link;
       ptr->link=temp;
       temp->link=p;
-    printf("%d",item);
+    printf("%d", temp->data);
     printf("->%p\n",temp->link);
     }
-    
-
+} void print(){
+ printf("the linked list is:\n");
+ poin=head;
+    while(poin!=NULL){
+        printf("->%d",poin->data);
+         poin=poin->link;
+    }
 }
  void main(){
     int x;
@@ -96,9 +104,10 @@ void insertion_at_begining(){
             case 3:insertion_at_anypoint();
             break;
             case 4:
-            printf("exiting");
+            printf("exiting\n");
             break;
             default:printf("enter a valid option\n");
         }
     } while(x!=4);
+    print();
 }
