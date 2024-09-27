@@ -3,12 +3,15 @@
 struct node{
     int data;
     struct node*link;
-}*temp,*head=NULL,*ptr,*poin;
+}*temp,*head=NULL,*ptr,*ptr2,*poin;
 int item;
 void insertion_at_begining();
 void insertion_at_end();
 void insertion_at_anypoint();
 void print();
+void deletion_at_begining();
+void deletion_at_end();
+void deletion_at_anypoint();
 void insertion_at_begining(){
     temp=(struct node*)malloc(sizeof(struct node));
     if(temp==NULL){
@@ -82,7 +85,59 @@ void insertion_at_begining(){
     printf("%d", temp->data);
     printf("->%p\n",temp->link);
     }
-} void print(){
+} void deletion_at_begining(){
+if(head==NULL){
+    printf("linkedlist unerflow");
+} ptr=head;
+   if(head->link==NULL){
+         head=NULL;
+          printf("the deleted elemnt is %d",ptr->data);
+           free(ptr);
+    }
+  else{
+  ptr=head;
+  head=ptr->link;
+  printf("the deleted element is %d ",ptr->data);
+  free(ptr);
+ }} void deletion_at_end(){
+    if(head==NULL){
+        printf("LinkedList underflow");
+    } else{
+        ptr=head;
+        ptr2=ptr->link;
+        while(ptr2->link!=NULL){
+            ptr=ptr->link;
+            ptr2=ptr2->link;
+        } printf("the deleted element is %d",ptr2->data);
+        free(ptr2);
+        ptr->link=NULL;
+    }
+ }void deletion_at_anypoint(){
+     if(head==NULL){
+    printf("linkedlist unerflow");
+}
+  if(ptr->link==NULL){
+     ptr=head;
+      head=NULL;
+      printf("the deleted element is %d",ptr->data);
+      free(ptr);
+ } else{
+    int value;
+    printf("enter the value of the data to be deleted");
+    scanf("%d",&value);
+    ptr=head;
+    ptr2=ptr->link;
+    while(ptr2->data!=value){
+        ptr=ptr->link;
+        ptr2=ptr2->link;
+    } ptr->link=ptr2->link;
+    free(ptr2);
+ }
+
+ }
+ 
+
+ void print(){
  printf("the linked list is:\n");
  poin=head;
     while(poin!=NULL){
@@ -91,12 +146,19 @@ void insertion_at_begining(){
     }
 }
  void main(){
-    int x;
+    char v;
+    int choice,choice1;
     do{
-        printf("\nenter your option\n");
-        printf("1:Insertion at begining\n2:Insertion at end\n3:Insertion at anypoint\n4:Exit\n");
-        scanf("%d",&x);
-        switch(x){
+       printf("enter your choice\n");
+       printf("If your choice is 1:Insrtion->type I or i\n");
+        printf("If your choice is 1:Deletion->type D or d\n");
+        printf("Or type E or e to exit\n");
+        scanf(" %c",&v);
+        if(v=='I'||v=='i'){
+            printf("Enter your choice of insertion");
+            printf("\n1:Insertion at Begining\n2:Insertion at End\n3:Insertion at Anypoint\n4:Exit");
+            scanf("%d",&choice);
+            switch(choice){
             case 1:insertion_at_begining();
             break;
             case 2: insertion_at_end();
@@ -107,7 +169,28 @@ void insertion_at_begining(){
             printf("exiting\n");
             break;
             default:printf("enter a valid option\n");
-        }
-    } while(x!=4);
-    print();
+            }}
+         else if(v=='D'||v=='d'){
+            printf("Enter your choice of deletionS");
+             printf("\n1:Deletion at Begining\n2:Deletion at End\n3:Deletion at Anypoint\n4:Exit");
+            scanf("%d",&choice1);
+            switch(choice1){
+            case 1: deletion_at_begining();
+            break;
+            case 2: deletion_at_end();
+            break;
+            case 3: deletion_at_anypoint();
+            break;
+            case 4:
+            printf("exiting\n");
+            break;
+            default:printf("enter a valid option\n");
+            }
+        }print();
+        }while(v!='E'&&v!='e');
+        
+       
+        
+     
+    
 }
