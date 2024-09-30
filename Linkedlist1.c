@@ -36,7 +36,9 @@ void insertion_at_begining(){
       temp=(struct node*)malloc(sizeof(struct node));
     if(temp==NULL){
         printf("overflow");
-    }printf("enter the data to be inserted at end:");
+        return;
+    }
+     printf("enter the data to be inserted at end:");
         scanf("%d",&item);
          temp->link=NULL;
         temp->data=item;
@@ -59,7 +61,8 @@ void insertion_at_begining(){
     temp=(struct node*)malloc(sizeof(struct node));
      if(temp==NULL){
         printf("overflow");
-    }printf("enter the data to be inserted:");
+    } return;
+    printf("enter the data to be inserted:");
     scanf("%d",&item);
     temp->data=item;
      if(head==NULL){
@@ -87,8 +90,9 @@ void insertion_at_begining(){
     }
 } void deletion_at_begining(){
 if(head==NULL){
-    printf("linkedlist unerflow");
-} ptr=head;
+    printf("linkedlist unerflow\n");
+} return;
+ ptr=head;
    if(head->link==NULL){
          head=NULL;
           printf("the deleted elemnt is %d",ptr->data);
@@ -101,8 +105,9 @@ if(head==NULL){
   free(ptr);
  }} void deletion_at_end(){
     if(head==NULL){
-        printf("LinkedList underflow");
-    } else{
+        printf("LinkedList underflow\n");
+    }
+     else{
         ptr=head;
         ptr2=ptr->link;
         while(ptr2->link!=NULL){
@@ -114,7 +119,7 @@ if(head==NULL){
     }
  }void deletion_at_anypoint(){
      if(head==NULL){
-    printf("linkedlist unerflow");
+    printf("linkedlist unerflow\n");
 }
   if(ptr->link==NULL){
      ptr=head;
@@ -127,7 +132,7 @@ if(head==NULL){
     scanf("%d",&value);
     ptr=head;
     ptr2=ptr->link;
-    while(ptr2->data!=value){
+    while(ptr2!=NULL&&ptr2->data!=value){
         ptr=ptr->link;
         ptr2=ptr2->link;
     } ptr->link=ptr2->link;
@@ -138,20 +143,26 @@ if(head==NULL){
  
 
  void print(){
+    if(head==NULL){
+        printf("the linked list is empty\n");
+    } else{
  printf("the linked list is:\n");
  poin=head;
     while(poin!=NULL){
         printf("->%d",poin->data);
          poin=poin->link;
     }
-}
+}}
  void main(){
     char v;
     int choice,choice1;
+    
+    
     do{
        printf("enter your choice\n");
        printf("If your choice is 1:Insrtion->type I or i\n");
         printf("If your choice is 1:Deletion->type D or d\n");
+        printf("If your choice is display,enter S\n");
         printf("Or type E or e to exit\n");
         scanf(" %c",&v);
         if(v=='I'||v=='i'){
@@ -186,7 +197,9 @@ if(head==NULL){
             break;
             default:printf("enter a valid option\n");
             }
-        }print();
+        } else if(v=='s'||v=='S'){
+            print();
+        }
         }while(v!='E'&&v!='e');
         
        
