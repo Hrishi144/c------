@@ -1,0 +1,35 @@
+#include<stdio.h>
+void main(){
+    int Array_size,i;
+    printf("Enter the size of the array");
+    scanf("%d",&Array_size);
+    int tree[Array_size];
+    printf("Enter the elements of the array\n");
+    for(i=0;i<Array_size;i++){
+        scanf("%d",&tree[i]);
+    } printf("The entered array is....\n");
+    for(i=0;i<Array_size;i++){
+        printf("%d  ",tree[i]);
+    } int opt;
+    printf("\nEnter the desired node index:");
+    scanf("%d",&opt);
+    printf("\nThe index you entered is %d and the node value is %d",opt,tree[opt]);
+    int parent;
+    parent=(opt-1)/2;
+    if(opt==0){
+        printf("\nThe Entered node has no parent");
+    } else{
+        printf("\nThe parent node is %d",parent);
+    } int Lchild,Rchild;
+    Lchild=(2*opt)+1;
+    if(Lchild>=Array_size){
+        printf("\nThe node %d has no left child",opt);
+    } else{
+        printf("\nThe left child is at %d and the value at the node will be %d",Lchild,tree[Lchild]);
+    }Rchild=(2*opt)+2;
+    if(Rchild>=Array_size){
+        printf("\nThe node %d has no right child",opt);
+    } else{
+        printf("\nThe Right child is at %d and the value at the node will be %d",Rchild,tree[Rchild]);
+    }
+}
