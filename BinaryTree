@@ -13,6 +13,9 @@ void main(){
     } int opt;
     printf("\nEnter the desired node index:");
     scanf("%d",&opt);
+    if(opt>Array_size){
+        printf("Enter a valid index less than the size");
+    } else{
     printf("\nThe index you entered is %d and the node value is %d",opt,tree[opt]);
     int parent;
     parent=(opt-1)/2;
@@ -32,4 +35,4 @@ void main(){
     } else{
         printf("\nThe Right child is at %d and the value at the node will be %d",Rchild,tree[Rchild]);
     }
-}
+}}
