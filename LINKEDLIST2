@@ -97,7 +97,7 @@ if(head==NULL){
  ptr=head;
    if(head->link==NULL){
          head=NULL;
-          printf("the deleted elemnt is %d\n",ptr->data);
+          printf("the deleted element is %d\n",ptr->data);
            free(ptr);
     }
   else{
