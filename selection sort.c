@@ -1,48 +1,32 @@
 #include<stdio.h>
-void main()
-{
-    int i,j,n,a[100],x,temp,min,time=0;
-    time++;
-    printf("Enter the number of elements");
-     time++;
-    scanf("%d",&n);
-     time++;
-    printf("Enter the  elements");
-     time++;
-      time++;
-    for(i=0;i<n;i++)
-     {
-        scanf("%d",&a[i]);
-         time++;
+void main(){
+    int A[30],i,j,n,temp;
+     printf("Enter the number of elements in the array: ");
+     scanf("%d",&n);
+     printf("\nEnter the %d elements in the array",n);
+     for(i=0;i<n;i++){
+        scanf("%d",&A[i]);
      }
-      time++;
-       time++;
-     for(i=0;i<n-1;i++)
-     {
-       min=i;
-       for(j=i+1;j<n;j++)
-       {
-         if(a[j]<a[min])
-         {
-            min=j;
+     printf("The Entered elements are....\n");
+     for(i=0;i<n;i++){
+        printf("%d\t",A[i]);
+     }
+     int min;
+     for(i=0;i<n-1;i++){
+         min=i;
+         for(j=i+1;j<n;j++){
+            if(A[j]<A[min]){
+                min=j;
+            }
          }
-       }
-       if(min!=i)
-       {
-        temp=a[i];
-        a[i]=a[min];
-        a[min]=temp;
-       }
+         if(min!=i){
+             temp=A[i];
+             A[i]=A[min];
+             A[min]=temp;
+         }
      }
-     printf("the sorted elements is");
-      time++;
-       time++;
-    for(i=0;i<n;i++)
-     {
-        printf("%d",a[i]);
-         time++;
+     printf("The sorted array is.....\n");
+     for(i=0;i<n;i++){
+        printf("%d\t",A[i]);
      }
-     printf("\n the space complexity=%d",(n*4)+(7*4));
-     time++;
-     printf("\n time complexity is %d",time+1);
 }
