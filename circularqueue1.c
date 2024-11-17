@@ -59,16 +59,18 @@ void dequeue(){
             printf("the deleted element is%d\n ",item);
         }}
         void display(){
-            if(front==-1){
-                printf("the queue is empty");
-            } else{
-                   printf("the queue is\n...");
-                   for(i=front;i<=rear;i++){
-                    printf("%d",a[i]);
-                   }
-                   printf("\n");
-            }
+              if(front == -1){
+        printf("The queue is empty\n");
+    } else {
+        printf("The queue is:\n");
+        i = front;
+        while (i != rear) {
+            printf("%d ", a[i]);
+            i = (i + 1) % n;
         }
+        printf("%d\n", a[rear]); 
+    }
+}
             
         
 
