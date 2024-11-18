@@ -68,7 +68,6 @@ void insertion_at_begining(){
     temp->data=item;
      if(head==NULL){
          temp->link=NULL;
-        temp->data=item;
         head=temp;
         printf("%d",temp->data);
         printf("->%p\n",temp->link);
@@ -123,8 +122,8 @@ if(head==NULL){
      if(head==NULL){
     printf("linkedlist unerflow\n");
 }
+  ptr=head;
   if(ptr->link==NULL){
-     ptr=head;
       head=NULL;
       printf("the deleted element is %d\n",ptr->data);
       free(ptr);
